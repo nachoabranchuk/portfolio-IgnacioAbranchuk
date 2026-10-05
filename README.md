@@ -49,3 +49,9 @@ src/
 ├── pages/        # index.astro
 └── styles/       # CSS global con Tailwind
 ```
+
+## Opcionales implementados
+
+- Modo oscuro y claro (respeta la preferencia del sistema y recuerda la elección).
+- Animaciones sutiles que respetan `prefers-reduced-motion`.
+- Lighthouse 100 en Performance, Accessibility, Best Practices y SEO.
