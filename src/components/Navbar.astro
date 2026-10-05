@@ -1,0 +1,30 @@
+---
+const links = [
+  { href: '#inicio', label: 'Inicio' },
+  { href: '#sobre-mi', label: 'Sobre mí' },
+  { href: '#proyectos', label: 'Proyectos' },
+  { href: '#contacto', label: 'Contacto' },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
+  <nav
+    aria-label="Navegación principal"
+    class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3"
+  >
+    <a href="#inicio" class="text-lg font-bold text-slate-900">Ignacio Abranchuk</a>
+
+    <ul class="flex gap-4 text-sm sm:gap-6 sm:text-base">
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="rounded px-1 text-slate-700 hover:text-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
