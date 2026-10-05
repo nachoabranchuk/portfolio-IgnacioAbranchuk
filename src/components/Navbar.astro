@@ -7,24 +7,56 @@ const links = [
 ];
 ---
 
-<header class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
+<header class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/90">
   <nav
     aria-label="Navegación principal"
     class="mx-auto flex max-w-5xl flex-col items-center gap-1 px-4 py-3 sm:flex-row sm:justify-between sm:gap-4"
   >
-    <a href="#inicio" class="text-lg font-bold text-slate-900">Ignacio Abranchuk</a>
+    <a href="#inicio" class="text-lg font-bold text-slate-900 dark:text-white">Ignacio Abranchuk</a>
 
-    <ul class="flex flex-wrap justify-center gap-x-4 gap-y-1 text-sm sm:gap-x-6 sm:text-base">
+    <ul class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm sm:gap-x-6 sm:text-base">
       {links.map((link) => (
         <li>
           <a
             href={link.href}
-            class="rounded px-1 text-slate-700 hover:text-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600"
+            class="rounded px-1 text-slate-700 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600"
           >
             {link.label}
           </a>
         </li>
       ))}
+      <li>
+        <button
+          id="boton-tema"
+          type="button"
+          aria-label="Modo oscuro"
+          aria-pressed="false"
+          class="rounded p-1 text-slate-700 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-600"
+        >
+          <svg class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg class="hidden h-5 w-5 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+        </button>
+      </li>
     </ul>
   </nav>
 </header>
+
+<script>
+  const boton = document.getElementById('boton-tema');
+  if (boton) {
+    const raiz = document.documentElement;
+    boton.setAttribute('aria-pressed', String(raiz.classList.contains('dark')));
+    boton.addEventListener('click', () => {
+      const oscuro = raiz.classList.toggle('dark');
+      boton.setAttribute('aria-pressed', String(oscuro));
+      try {
+        localStorage.setItem('tema', oscuro ? 'dark' : 'light');
+      } catch (e) {}
+    });
+  }
+</script>

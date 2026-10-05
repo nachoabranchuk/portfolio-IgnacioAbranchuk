@@ -16,8 +16,21 @@ const { title, description = 'Portfolio personal de Ignacio Abranchuk' } = Astro
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <script is:inline>
+      (function () {
+        var raiz = document.documentElement;
+        var guardado = null;
+        try {
+          guardado = localStorage.getItem('tema');
+        } catch (e) {}
+        var oscuro = guardado
+          ? guardado === 'dark'
+          : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        raiz.classList.toggle('dark', oscuro);
+      })();
+    </script>
   </head>
-  <body class="bg-white text-slate-900">
+  <body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
     <slot />
   </body>
 </html>
