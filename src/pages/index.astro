@@ -2,20 +2,19 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Ignacio Abranchuk | Desarrollador Web">
   <Navbar />
   <main>
     <Hero />
-    <section id="sobre-mi" class="min-h-screen scroll-mt-16 p-8">
-      <h2 class="text-3xl font-bold">Sobre mí</h2>
-    </section>
-    <section id="proyectos" class="min-h-screen scroll-mt-16 p-8">
-      <h2 class="text-3xl font-bold">Proyectos</h2>
-    </section>
-    <section id="contacto" class="min-h-screen scroll-mt-16 p-8">
-      <h2 class="text-3xl font-bold">Contacto</h2>
-    </section>
+    <About />
+    <Projects />
+    <Contact />
   </main>
+  <Footer />
 </Layout>
