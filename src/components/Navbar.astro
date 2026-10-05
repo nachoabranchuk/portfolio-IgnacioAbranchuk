@@ -10,11 +10,11 @@ const links = [
 <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
   <nav
     aria-label="Navegación principal"
-    class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3"
+    class="mx-auto flex max-w-5xl flex-col items-center gap-1 px-4 py-3 sm:flex-row sm:justify-between sm:gap-4"
   >
     <a href="#inicio" class="text-lg font-bold text-slate-900">Ignacio Abranchuk</a>
 
-    <ul class="flex gap-4 text-sm sm:gap-6 sm:text-base">
+    <ul class="flex flex-wrap justify-center gap-x-4 gap-y-1 text-sm sm:gap-x-6 sm:text-base">
       {links.map((link) => (
         <li>
           <a
