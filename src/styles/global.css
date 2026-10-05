@@ -1,8 +1,24 @@
 @import "tailwindcss";
 
-/* El modo oscuro se activa con la clase "dark" en <html> (la maneja el botón) */
 @custom-variant dark (&:where(.dark, .dark *));
 
 html.dark {
   color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .js .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
 }
